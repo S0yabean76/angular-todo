@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "angular-route": "^1.6.3"
+    "angular-route": "^1.6.3",
+    "a0-angular-storage": "^0.0.15"
   }
 }
