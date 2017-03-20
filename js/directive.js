@@ -11,4 +11,4 @@ angular.module('TodoDirective',[])
 			restrict: 'E',
 			templateUrl: 'templates/directives/todo-navbar.html'
 		};
-});
+	});
