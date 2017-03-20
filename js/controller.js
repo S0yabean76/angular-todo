@@ -4,6 +4,7 @@ angular.module('RouteControllers', [])
         $scope.username = store.get('username');
 	})
 	.controller('RegisterController', function($scope, $location, UserAPIService, store) {
+        
 
         $scope.registrationUser = {};
         var url = "https://morning-castle-91468.herokuapp.com/";
@@ -13,7 +14,7 @@ angular.module('RouteControllers', [])
                 $scope.token = results.data.token;
                 store.set('username', $scope.registrationUser.username);
                 store.set('authToken', $scope.token);
-                $location.path("/todo");
+                $location.path("/");
             }).catch(function(err) {
                 console.log(err);
             });
@@ -32,12 +33,17 @@ angular.module('RouteControllers', [])
                         $scope.login();
                     }
                 }).catch(function(err) {
+                    alert("Oops! Something went wrong!");
                     console.log(err)
                 });
             }
         }
     })
     .controller('LoginController', function($scope, $location,UserAPIService, store) {
+        if (store.get('authToken')){
+            alert("You are already logged in!");
+            $location.path("/");
+        }
         $scope.loginUser = {};
         var URL = "https://morning-castle-91468.herokuapp.com/";
 
@@ -50,7 +56,7 @@ angular.module('RouteControllers', [])
                     $scope.token = results.data.token;
                     store.set('username', $scope.loginUser.username);
                     store.set('authToken', $scope.token);
-                    $location.path("/todo");
+                    $location.path("/");
                     alert("You have successfully logged in to Angular Todo");
                 }).catch(function(err) {
                     console.log(err);

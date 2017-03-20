@@ -6,9 +6,9 @@ angular.module('TodoDirective',[])
 	  };
 	})
 
-	.directive('todoNavbar', function() {
-		return {
+	.directive('standardNavbar', function(){
+		return{
 			restrict: 'E',
-			templateUrl: 'templates/directives/todo-navbar.html'
+			templateUrl: 'templates/directives/standard-navbar.html'
 		};
-});
+	});
